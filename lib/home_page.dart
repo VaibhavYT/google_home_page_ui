@@ -22,7 +22,10 @@ class _HomePageState extends State<HomePage> {
         title: Text('Google Home'),
         backgroundColor: myColor,
       ),
-      body: Column(
+      body:
+      
+      Column(
+        
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -54,13 +57,16 @@ class _HomePageState extends State<HomePage> {
                   assetName,
                   width: 40,
                   height: 40,
+                  color: Colors.white,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CircleAvatar(
+                  backgroundColor: Colors.black,
                   radius: 25,
-                  child: Text('AB'),
+                  child: Image.asset('assets/images/googlelogo.png',
+                  fit: BoxFit.cover,)
                 ),
               )
             ],
@@ -73,7 +79,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Center(
                 child: Image.asset(
-                  'assets/images/google_logo.png',
+                  'assets/images/googlelogo.png',
                   width: 272,
                   height: 92,
                   fit: BoxFit.contain,
@@ -101,7 +107,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(
-            height: 16,
+            height: 40,
           ),
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -116,7 +122,7 @@ class _HomePageState extends State<HomePage> {
           //           borderRadius: BorderRadius.circular(4),
           //           color: Color(0xFF303134),
           //           border: Border.all(),
-                    
+
           //         ),
           //         child: Padding(
           //           padding: const EdgeInsets.all(8.0),
@@ -144,25 +150,117 @@ class _HomePageState extends State<HomePage> {
           //     ),
           //   ],
           // ),
-           Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Google Search'),
-                  
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromARGB(255, 67, 70, 80)),
+                  padding: MaterialStateProperty.all(
+                    EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  ),
                 ),
-                SizedBox(width: 16),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('I\'m Feeling Lucky'),
-                  
+                child: Text('Google Search'),
+              ),
+              SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                      Color.fromARGB(255, 67, 70, 80)),
+                  padding: MaterialStateProperty.all(
+                    EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  ),
                 ),
-              ],
-            ),
-            SizedBox(height: 16),
+                child: Text('Im Feeling Lucky'),
+              ),
+            ],
+          ),
+          SizedBox(height: 50),
+           SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+             child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Google offered in: ',
+                  style: TextStyle(
+                    color: Colors.white
+                  ),),
+                  InkWell(
+                    onTap: () {},
+                    child: Text(
+                      'हिन्दी',
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  Text('  |  '),
+                  InkWell(
+                    onTap: () {},
+                    child: Text(
+                      'বাংলা',
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  Text('  |  '),
+                  InkWell(
+                    onTap: () {},
+                    child: Text(
+                      'తెలుగు',
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  Text('  |  '),
+                  InkWell(
+                    onTap: () {},
+                    child: Text(
+                      'मराठी',
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  Text('  |  '),
+                  InkWell(
+                    onTap: () {},
+                    child: Text(
+                      'தமிழ்',
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  Text('  |  '),
+                  
+                ],
+              ),
+           ),
+            SizedBox(height: 80),
+        
+            // ignore: prefer_const_literals_to_create_immutables
+             
         ],
+      
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.white,
+        backgroundColor: Colors.black,
+        items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.info
+              ),
+              label: 'About',
+              
+              backgroundColor: Colors.grey
+              ),
+              BottomNavigationBarItem(icon: Icon(Icons.post_add
+             
+              ),
+              label: 'Advertisement',
+              ),
+              BottomNavigationBarItem(icon: Icon(Icons.settings),
+              label: 'Settings',
+              ),
+
+            ]),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 }
