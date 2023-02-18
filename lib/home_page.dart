@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,15 +18,23 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: myColor,
+      
       appBar: AppBar(
-        leading: Icon(Icons.search),
+        centerTitle: true,
+        leading: ResponsiveVisibility(
+          hiddenWhen: const [
+            Condition.largerThan(name: MOBILE),
+          ],
+          
+          child: IconButton(
+            onPressed: (){},
+            
+            icon: const Icon((Icons.menu))),
+        ),
         title: Text('Google Home'),
         backgroundColor: myColor,
       ),
-      body:
-      
-      Column(
-        
+      body: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -63,11 +72,12 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CircleAvatar(
-                  backgroundColor: Colors.black,
-                  radius: 25,
-                  child: Image.asset('assets/images/googlelogo.png',
-                  fit: BoxFit.cover,)
-                ),
+                    backgroundColor: Colors.black,
+                    radius: 25,
+                    child: Image.asset(
+                      'assets/images/googlelogo.png',
+                      fit: BoxFit.cover,
+                    )),
               )
             ],
           ),
@@ -179,87 +189,80 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           SizedBox(height: 50),
-           SingleChildScrollView(
+          SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-             child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Google offered in: ',
-                  style: TextStyle(
-                    color: Colors.white
-                  ),),
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      'हिन्दी',
-                      style: TextStyle(color: Colors.blue),
-                    ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Google offered in: ',
+                  style: TextStyle(color: Colors.white),
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    'हिन्दी',
+                    style: TextStyle(color: Colors.blue),
                   ),
-                  Text('  |  '),
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      'বাংলা',
-                      style: TextStyle(color: Colors.blue),
-                    ),
+                ),
+                Text('  |  '),
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    'বাংলা',
+                    style: TextStyle(color: Colors.blue),
                   ),
-                  Text('  |  '),
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      'తెలుగు',
-                      style: TextStyle(color: Colors.blue),
-                    ),
+                ),
+                Text('  |  '),
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    'తెలుగు',
+                    style: TextStyle(color: Colors.blue),
                   ),
-                  Text('  |  '),
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      'मराठी',
-                      style: TextStyle(color: Colors.blue),
-                    ),
+                ),
+                Text('  |  '),
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    'मराठी',
+                    style: TextStyle(color: Colors.blue),
                   ),
-                  Text('  |  '),
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      'தமிழ்',
-                      style: TextStyle(color: Colors.blue),
-                    ),
+                ),
+                Text('  |  '),
+                InkWell(
+                  onTap: () {},
+                  child: Text(
+                    'தமிழ்',
+                    style: TextStyle(color: Colors.blue),
                   ),
-                  Text('  |  '),
-                  
-                ],
-              ),
-           ),
-            SizedBox(height: 80),
-        
-            // ignore: prefer_const_literals_to_create_immutables
-             
+                ),
+                Text('  |  '),
+              ],
+            ),
+          ),
+          SizedBox(height: 80),
+
+          // ignore: prefer_const_literals_to_create_immutables
         ],
-      
       ),
       bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Colors.white,
-        backgroundColor: Colors.black,
-        items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.info
-              ),
-              label: 'About',
-              
-              backgroundColor: Colors.grey
-              ),
-              BottomNavigationBarItem(icon: Icon(Icons.post_add
-             
-              ),
+          unselectedItemColor: Colors.white,
+          backgroundColor: Colors.black,
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.info),
+                label: 'About',
+                backgroundColor: Colors.grey),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.post_add),
               label: 'Advertisement',
-              ),
-              BottomNavigationBarItem(icon: Icon(Icons.settings),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
               label: 'Settings',
-              ),
-
-            ]),
-
+            ),
+          ]),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
